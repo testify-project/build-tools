@@ -7,3 +7,7 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
+secrets/
+**/secrets.tar
+**/secrets.tar.gz
+/update_secrets.sh
