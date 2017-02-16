@@ -18,7 +18,7 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.testify</groupId>
+    <groupId>org.testifyproject</groupId>
     <artifactId>build-tools</artifactId>
     <version>0.9.0-SNAPSHOT</version>
 
@@ -41,7 +41,7 @@
         <plugin.javadoc>2.10.3</plugin.javadoc>
         <plugin.gpg>1.6</plugin.gpg>
         <plugin.versions>2.2</plugin.versions>
-        <plugin.sonatype>1.6.6</plugin.sonatype>
+        <plugin.sonatype>1.6.7</plugin.sonatype>
         <plugin.shade>2.4.2</plugin.shade>
         <plugin.checkstyle>2.17</plugin.checkstyle>
         <plugin.license>3.0</plugin.license>
@@ -157,6 +157,7 @@
                             <exclude>src/main/resources/**</exclude>
                             <exclude>nbproject/**</exclude>
                             <exclude>archetype.properties</exclude>
+                            <exclude>pom.xml.*</exclude>
                         </excludes>
                     </configuration>
                 </plugin>

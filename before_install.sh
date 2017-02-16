@@ -20,6 +20,8 @@ if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
     echo "Decrypting Secrets"
     openssl aes-256-cbc -K $encrypted_a635af73de4d_key -iv $encrypted_a635af73de4d_iv -in secrets.tar.gz.enc -out secrets.tar.gz -d
     tar -xvzf secrets.tar.gz
+    gpg --fast-import testifybot.asc
+    ssh-add testifybot_rsa
 fi
 
 echo "MAVEN_OPTS='-client -Xms512m -Xmx2048m'" > ~/.mavenrc

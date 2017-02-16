@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.testify.buildtools.shade;
+package org.testifyproject.buildtools.shade;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
