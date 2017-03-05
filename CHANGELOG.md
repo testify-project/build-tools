@@ -12,9 +12,10 @@ was added, changed, deprecated, removed, fix and security fixes.
 - Security - Lists security fixes to security vulnerabilities
 
 ## [Unreleased]
+### Added
+- CONTRIBUTING.md file
 
-
-[0.9.0] - 2017-02-16
+## [0.9.0] - 2017-02-16
 ### Added
 - Initial commit.
 - Custom checkstyle configuration
@@ -23,7 +24,7 @@ was added, changed, deprecated, removed, fix and security fixes.
 - Maven shade ResourceTransformer implementation that addresses [MSHADE-182](https://issues.apache.org/jira/browse/MSHADE-182)
 
 
-[0.9.1] - 2017-03-05
+## [0.9.1] - 2017-03-05
 ### Added
 - External shaded libraries
 - Useful tools (service descriptor generator and test logging tools)
