@@ -106,7 +106,8 @@ $ git flow release start x.x.x
 # replace x.x.x with release semantic version
 $ mvn versions:set -DnewVersion=x.x.x
 ```
-- Commit the updated pom files:
+- Update CHANGELOG.md:
+- Commit the changes:
 ```bash
 # replace x.x.x with release semantic version
 $ git commit -m "Updated version to x.x.x" .
@@ -145,4 +146,4 @@ Enjoy and keep on Testifying!
 [semver]: http://semver.org
 [github-issues]: https://github.com/testify-project/build-tools/issues
 [github-issues-new]: https://github.com/testify-project/build-tools/issues/new
-[gitter]: https://gitter.im/testify-project/testify
+[gitter]: https://gitter.im/testify-project/Lobby

@@ -12,9 +12,22 @@ was added, changed, deprecated, removed, fix and security fixes.
 - Security - Lists security fixes to security vulnerabilities
 
 ## [Unreleased]
+
+
+[0.9.0] - 2017-02-16
 ### Added
 - Initial commit.
 - Custom checkstyle configuration
 - Java header style configuration
 - License text file used to check file header against
 - Maven shade ResourceTransformer implementation that addresses [MSHADE-182](https://issues.apache.org/jira/browse/MSHADE-182)
+
+
+[0.9.1] - 2017-03-05
+### Added
+- External shaded libraries
+- Useful tools (service descriptor generator and test logging tools)
+
+### Changed
+- Moved styles to coding-conventions module
+- Moved maven resource shade transformer implementation to its own module (shade-plugin-extention)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright 2016-2017 Sharmarke Aden.
+    Copyright 2016-2017 Testify Project.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -18,33 +18,53 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.testifyproject</groupId>
-    <artifactId>build-tools</artifactId>
-    <version>0.9.0</version>
+    <groupId>org.testifyproject.buildtools</groupId>
+    <artifactId>parent</artifactId>
+    <version>0.9.1</version>
+    <packaging>pom</packaging>
 
     <name>Build Tools</name>
     <description>A set of tools for managing code quality and builds</description>
     <url>https://github.com/testify-project/build-tools</url>
+    
+    <modules>
+        <module>coding-conventions</module>
+        <module>tools</module>
+        <module>maven</module>
+        <module>external</module>
+    </modules>
 
     <properties>
+        <!-- Build Properties -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.version>3.0.5</maven.version>
 
+        <!-- IDE Properties -->
+        <netbeans.compile.on.save>none</netbeans.compile.on.save>
+        <netbeans.checkstyle.format>true</netbeans.checkstyle.format>
         <netbeans.hint.license>apache20</netbeans.hint.license>
+        <netbeans.hint.license.inceptionYear>2016</netbeans.hint.license.inceptionYear>
 
-        <checkstyle.version>7.0</checkstyle.version>
+        <!-- Test Dependency Versions -->
+        <junit.version>4.12</junit.version>
+        <testng.version>6.9.10</testng.version>
+        <mockito.version>2.6.2</mockito.version>
+        <assertj.version>3.5.2</assertj.version>
 
+        <!-- Plugin Dependency Versions -->
+        <plugin.enforcer>1.4.1</plugin.enforcer>
         <plugin.compiler>3.3</plugin.compiler>
+        <plugin.surefire>2.19.1</plugin.surefire>
         <plugin.source>2.4</plugin.source>
         <plugin.javadoc>2.10.3</plugin.javadoc>
         <plugin.gpg>1.6</plugin.gpg>
         <plugin.versions>2.2</plugin.versions>
         <plugin.sonatype>1.6.7</plugin.sonatype>
-        <plugin.shade>2.4.2</plugin.shade>
         <plugin.checkstyle>2.17</plugin.checkstyle>
         <plugin.license>3.0</plugin.license>
+        <plugin.jacoco>0.7.7.201606060606</plugin.jacoco>
     </properties>
 
     <prerequisites>
@@ -54,7 +74,7 @@
     <inceptionYear>2016</inceptionYear>
 
     <organization>
-        <name>Sharmarke Aden</name>
+        <name>Testify Project</name>
         <url>https://github.com/testify-project/build-tools</url>
     </organization>
 
@@ -105,14 +125,53 @@
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${plugin.compiler}</version>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${plugin.enforcer}</version>
+                    <executions>
+                        <execution>
+                            <id>enforce-versions</id>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <configuration>
+                                <rules>
+                                    <requireMavenVersion>
+                                        <version>[${maven.version},)</version>
+                                    </requireMavenVersion>
+                                    <requireJavaVersion>
+                                        <version>${maven.compiler.target}</version>
+                                    </requireJavaVersion>
+                                    <requireProperty>
+                                        <property>project.build.sourceEncoding</property>
+                                        <regex>${project.build.sourceEncoding}</regex>
+                                    </requireProperty>
+                                </rules>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${plugin.checkstyle}</version>
+                    <executions>
+                        <execution>
+                            <id>checkstyle-check</id>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.testifyproject.buildtools</groupId>
+                            <artifactId>coding-conventions</artifactId>
+                            <version>${project.version}</version>
+                        </dependency>
+                    </dependencies>
                     <configuration>
-                        <debug>true</debug>
-                        <debuglevel>lines,vars</debuglevel>
-                        <compilerArguments>
-                            <parameters />
-                        </compilerArguments>
+                        <configLocation>custom_checkstyle.xml</configLocation>
+                        <consoleOutput>true</consoleOutput>
+                        <failsOnError>true</failsOnError>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -129,16 +188,13 @@
                     </executions>
                     <dependencies>
                         <dependency>
-                            <groupId>com.mycila</groupId>
-                            <artifactId>license-maven-plugin-git</artifactId>
-                            <version>${plugin.license}</version>
+                            <groupId>org.testifyproject.buildtools</groupId>
+                            <artifactId>coding-conventions</artifactId>
+                            <version>${project.version}</version>
                         </dependency>
                     </dependencies>
                     <configuration>
-                        <header>${project.build.outputDirectory}/license.txt</header>
-                        <properties>
-                            <owner>${project.organization.name}</owner>
-                        </properties>
+                        <header>license.txt</header>
                         <headerDefinitions>
                             <headerDefinition>java_header_style.xml</headerDefinition>
                         </headerDefinitions>
@@ -162,28 +218,48 @@
                     </configuration>
                 </plugin>
                 <plugin>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${plugin.checkstyle}</version>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${plugin.compiler}</version>
+                    <configuration>
+                        <debug>true</debug>
+                        <debuglevel>lines,vars</debuglevel>
+                        <compilerArguments>
+                            <parameters />
+                        </compilerArguments>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${plugin.surefire}</version>
+                    <configuration>
+                        <argLine>${jacocoSurefireArgs} -client -Xms512m -Xmx2048m</argLine>
+                        <forkCount>1</forkCount>
+                        <reuseForks>true</reuseForks>
+                        <parallel>classesAndMethods</parallel>
+                        <useUnlimitedThreads>true</useUnlimitedThreads>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${plugin.jacoco}</version>
                     <executions>
                         <execution>
-                            <id>checkstyle-check</id>
+                            <id>jacoco-prepare-agent</id>
                             <goals>
-                                <goal>check</goal>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                            <configuration>
+                                <propertyName>jacocoSurefireArgs</propertyName>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>jacoco-report</id>
+                            <goals>
+                                <goal>report</goal>
                             </goals>
                         </execution>
                     </executions>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.puppycrawl.tools</groupId>
-                            <artifactId>checkstyle</artifactId>
-                            <version>${checkstyle.version}</version>
-                        </dependency>
-                    </dependencies>
-                    <configuration>
-                        <configLocation>${project.build.outputDirectory}/custom_checkstyle.xml</configLocation>
-                        <consoleOutput>true</consoleOutput>
-                        <failsOnError>true</failsOnError>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-source-plugin</artifactId>
@@ -240,16 +316,29 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-shade-plugin</artifactId>
-            <version>${plugin.shade}</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
     <profiles>
-        <!-- Build Profile -->
+        <!-- Default Development Profile -->
         <profile>
-            <id>build</id>
+            <id>dev</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -257,11 +346,48 @@
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
                     </plugin>
                     <plugin>
-                        <groupId>com.mycila</groupId>
-                        <artifactId>license-maven-plugin</artifactId>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <configuration>
+                            <skip>${skipTests}</skip>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <configuration>
+                            <skip>${skipTests}</skip>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Quick Validation Profile -->
+        <profile>
+            <id>validate</id>
+            <properties>
+                <skipTests>true</skipTests>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Build Profile -->
+        <profile>
+            <id>build</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
                     </plugin>
                     <plugin>
                         <artifactId>maven-javadoc-plugin</artifactId>
