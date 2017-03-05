@@ -18,3 +18,5 @@ was added, changed, deprecated, removed, fix and security fixes.
 - Java header style configuration
 - License text file used to check file header against
 - Maven shade ResourceTransformer implementation that addresses [MSHADE-182](https://issues.apache.org/jira/browse/MSHADE-182)
+- External shaded libraries
+- Useful tools.
