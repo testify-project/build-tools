@@ -13,7 +13,10 @@ was added, changed, deprecated, removed, fix and security fixes.
 
 ## [Unreleased]
 ### Added
-- CONTRIBUTING.md file
+- CONTRIBUTING.md and RELEASING.md documentation files
+
+### Changed
+- Test Logger module is now shaded
 
 ## [0.9.0] - 2017-02-16
 ### Added
