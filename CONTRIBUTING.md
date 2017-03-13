@@ -1,6 +1,13 @@
 # Contributing
 
-## Prerequisites
+## Building from Source
+Testify uses a Maven-based build system. To build from source follow the bellow instructions:
+
+### Install Prerequisites
+- [Git 1.9.1](https://git-scm.com/downloads) or above
+- [JDK 8](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) (be sure to set `JAVA_HOME`)
+- [Maven 3.3.3](https://maven.apache.org/download.cgi) or above
+- [Docker 1.11.1](https://docs.docker.com/engine/installation)
 - [Install GitFlow](http://danielkummer.github.io/git-flow-cheatsheet)
 - Initialize GitFlow:
 ```bash
@@ -15,20 +22,28 @@ Support branch prefix: support/
 Version tag prefix:
 ```
 
-### Versioning
-Testify has an automated release system and uses [Semantic Versioning][semver] version numbering system.
+### Check out sources
+-- Via SSH (preferred for security reasons):
+```
+$ git clone git@github.com:testify-project/testify.git
+```
+- Or via HTTPS:
 
 ```
-major.minor.patch
+$ git clone https://github.com/testify-project/testify.git
 ```
 
-| number | meaning                                                                    |
-| ------ | -------------------------------------------------------------------------- |
-| major  | major version, with most probably incompatible change in API and behavior  |
-| minor  | minor version, important enough change to bump this number                 |
-| patch  | a released build number incremented automatically a pull request is merged |
+### Compile, build, and install Testify JARs into your local Maven Cache
+```
+$ mvn install -Dmaven.test.skip
+```
 
-### Adding a Feature
+### Compile, test, build, and install Testify JARs into your local Maven Cache
+```
+$ mvn install
+```
+
+## Adding a Feature
 - Create a feature:
 ```bash
 $ git flow feature start awesome-feature
@@ -46,42 +61,5 @@ $ git flow feature publish awesome-feature
 $ git flow feature finish awesome-feature
 ```
 
-### Performing Release
-- Start release:
-```bash
-# replace x.x.x with release semantic version
-$ git flow release start x.x.x
-```
-- Update the project version in pom files:
-```bash
-# replace x.x.x with release semantic version
-$ mvn versions:set -DnewVersion=x.x.x
-```
-- Update CHANGELOG.md:
-- Commit the changes:
-```bash
-# replace x.x.x with release semantic version
-$ git commit -m "Updated version to x.x.x" .
-```
-- Finish the release:
-```bash
-# replace x.x.x with release semantic version
-$ git flow release finish x.x.x # release semantic version
-```
-- Update next development project version in pom files:
-```bash
-# replace x.x.x with next development semantic version
-$ mvn versions:set -DnewVersion=x.x.x-SNAPSHOT
-```
-- Commit the updated pom files:
-```bash
-# replace x.x.x with next development semantic version
-$ git commit -m "Updated next development version to x.x.x-SNAPSHOT" .
-```
-- Push changes in develop and master branches and tags to remote repository:
-```bash
-$ git push origin develop master --tags
-```
-
-### Issue Pull Request
-[Pull requests](http://help.github.com/send-pull-requests) are welcome.
+## Issue Pull Request
+[Pull requests](https://github.com/testify-project/testify/pulls) are welcome.
