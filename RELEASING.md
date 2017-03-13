@@ -39,7 +39,7 @@ $ mvn versions:set -DnewVersion=$DEVELOPMENT_VERSION
 ```
 - Commit the updated pom files:
 ```bash
-$ git commit -m "Updated next development version to DEVELOPMENT_VERSION" .
+$ git commit -m "Updated next development version to $DEVELOPMENT_VERSION" .
 ```
 - Push changes, develop, master branches and tags to remote repository:
 ```bash
