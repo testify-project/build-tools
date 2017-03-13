@@ -21,12 +21,12 @@
     <parent>
         <groupId>org.testifyproject.tools</groupId>
         <artifactId>tools</artifactId>
-        <version>0.9.1</version>
+        <version>0.9.2</version>
     </parent>
 
     <artifactId>service-generator</artifactId>
 
-    <name>Service Generator</name>
+    <name>service-generator</name>
     <description>
         A module that contains an annotation processor that processes classes
         annotated with @Discoverable and generates a provider-configuration

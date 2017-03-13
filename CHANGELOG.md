@@ -13,8 +13,7 @@ was added, changed, deprecated, removed, fix and security fixes.
 
 ## [Unreleased]
 
-
-[0.9.0] - 2017-02-16
+## [0.9.0] - 2017-02-16
 ### Added
 - Initial commit.
 - Custom checkstyle configuration
@@ -23,7 +22,7 @@ was added, changed, deprecated, removed, fix and security fixes.
 - Maven shade ResourceTransformer implementation that addresses [MSHADE-182](https://issues.apache.org/jira/browse/MSHADE-182)
 
 
-[0.9.1] - 2017-03-05
+## [0.9.1] - 2017-03-05
 ### Added
 - External shaded libraries
 - Useful tools (service descriptor generator and test logging tools)
@@ -31,3 +30,10 @@ was added, changed, deprecated, removed, fix and security fixes.
 ### Changed
 - Moved styles to coding-conventions module
 - Moved maven resource shade transformer implementation to its own module (shade-plugin-extention)
+
+## [0.9.2] - 2017-03-13
+### Added
+- CONTRIBUTING.md and RELEASING.md documentation files
+
+### Changed
+- Shaded test-logger module to avoid conflicts
