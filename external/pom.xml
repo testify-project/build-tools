@@ -40,10 +40,6 @@
         <module>external-objenesis</module>
     </modules>
 
-    <properties>
-        <plugin.shade>2.4.3</plugin.shade>
-    </properties>
-
     <build>
         <plugins>
             <plugin>

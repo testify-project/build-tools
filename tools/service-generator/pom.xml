@@ -26,7 +26,7 @@
 
     <artifactId>service-generator</artifactId>
 
-    <name>Service Generator</name>
+    <name>service-generator</name>
     <description>
         A module that contains an annotation processor that processes classes
         annotated with @Discoverable and generates a provider-configuration

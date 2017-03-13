@@ -26,7 +26,10 @@
 
     <artifactId>test-logger</artifactId>
     <name>test-logger</name>
-    <description>A module that provides logging configuration to log information to the console using SLF4J, Logback, Jansi</description>
+    <description>
+        A module that provides logging configuration to log messages from
+        various logging systems to the console using SLF4J, Logback, and Jansi
+    </description>
 
     <properties>
         <janino.version>2.7.8</janino.version>
@@ -68,4 +71,21 @@
             <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <configuration>
+                    <relocations>
+                        <relocation>
+                            <pattern>org.fusesource</pattern>
+                            <shadedPattern>org.testifyproject</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -54,7 +54,6 @@ The Testify is released under [Apache Software License, Version 2.0](LICENSE).
 
 Enjoy and keep on Testifying!
 
-[semver]: http://semver.org
 [github-issues]: https://github.com/testify-project/build-tools/issues
 [github-issues-new]: https://github.com/testify-project/build-tools/issues/new
 [gitter]: https://gitter.im/testify-project/Lobby
