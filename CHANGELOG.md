@@ -12,11 +12,6 @@ was added, changed, deprecated, removed, fix and security fixes.
 - Security - Lists security fixes to security vulnerabilities
 
 ## [Unreleased]
-### Added
-- CONTRIBUTING.md and RELEASING.md documentation files
-
-### Changed
-- Test Logger module is now shaded
 
 ## [0.9.0] - 2017-02-16
 ### Added
@@ -35,3 +30,10 @@ was added, changed, deprecated, removed, fix and security fixes.
 ### Changed
 - Moved styles to coding-conventions module
 - Moved maven resource shade transformer implementation to its own module (shade-plugin-extention)
+
+## [0.9.2] - 2017-03-13
+### Added
+- CONTRIBUTING.md and RELEASING.md documentation files
+
+### Changed
+- Shaded test-logger module to avoid conflicts
