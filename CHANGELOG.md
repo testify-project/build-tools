@@ -12,10 +12,6 @@ was added, changed, deprecated, removed, fix and security fixes.
 - Security - Lists security fixes to security vulnerabilities
 
 ## [Unreleased]
-### Changes
-- Insured that @Discoverable annotation is discarded by the compiler
-- Changed checkstyle file name to testify_checkstyle.xml
-- Updated checkstyle configuration to fix formatting issue with right curly bracket
 
 ## [0.9.0] - 2017-02-16
 ### Added
@@ -41,3 +37,9 @@ was added, changed, deprecated, removed, fix and security fixes.
 
 ### Changed
 - Shaded test-logger module to avoid conflicts
+
+## [0.9.3] - 2017-03-18
+### Changes
+- Insured that @Discoverable annotation is discarded by the compiler
+- Changed checkstyle file name to testify_checkstyle.xml
+- Updated checkstyle configuration to fix formatting issue with right curly bracket
