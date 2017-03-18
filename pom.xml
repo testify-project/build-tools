@@ -132,7 +132,7 @@
             </releases>
             <snapshots>
                 <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
+                <updatePolicy>daily</updatePolicy>
             </snapshots>
         </repository>
         <repository>
@@ -197,7 +197,7 @@
                         </dependency>
                     </dependencies>
                     <configuration>
-                        <configLocation>custom_checkstyle.xml</configLocation>
+                        <configLocation>testify_checkstyle.xml</configLocation>
                         <consoleOutput>true</consoleOutput>
                         <failsOnError>true</failsOnError>
                     </configuration>

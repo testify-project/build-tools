@@ -128,15 +128,13 @@ public class ServiceResourceTransformer implements ResourceTransformer {
         }
     }
 
-    static class ServiceStream
-            extends ByteArrayOutputStream {
+    static class ServiceStream extends ByteArrayOutputStream {
 
         ServiceStream() {
             super(1_024);
         }
 
-        public void append(InputStream is)
-                throws IOException {
+        public void append(InputStream is) throws IOException {
             if (count > 0 && buf[count - 1] != '\n' && buf[count - 1] != '\r') {
                 write('\n');
             }

@@ -39,6 +39,5 @@
             <version>${plugin.shade}</version>
         </dependency>
     </dependencies>
-
     
 </project>
