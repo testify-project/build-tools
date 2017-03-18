@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.testifyproject.maven</groupId>
         <artifactId>maven</artifactId>
-        <version>0.9.2</version>
+        <version>0.9.3</version>
     </parent>
 
     <artifactId>shade-plugin-extentions</artifactId>
@@ -39,6 +39,5 @@
             <version>${plugin.shade}</version>
         </dependency>
     </dependencies>
-
     
 </project>

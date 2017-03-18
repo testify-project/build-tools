@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.testifyproject.buildtools</groupId>
     <artifactId>parent</artifactId>
-    <version>0.9.2</version>
+    <version>0.9.3</version>
     <packaging>pom</packaging>
 
     <name>Build Tools</name>
@@ -132,7 +132,7 @@
             </releases>
             <snapshots>
                 <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
+                <updatePolicy>daily</updatePolicy>
             </snapshots>
         </repository>
         <repository>
@@ -197,7 +197,7 @@
                         </dependency>
                     </dependencies>
                     <configuration>
-                        <configLocation>custom_checkstyle.xml</configLocation>
+                        <configLocation>testify_checkstyle.xml</configLocation>
                         <consoleOutput>true</consoleOutput>
                         <failsOnError>true</failsOnError>
                     </configuration>
