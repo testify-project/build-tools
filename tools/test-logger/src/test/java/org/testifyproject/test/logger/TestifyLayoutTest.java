@@ -20,7 +20,6 @@ import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.ConsoleAppender;
 import ch.qos.logback.core.encoder.LayoutWrappingEncoder;
-import org.apache.log4j.MDC;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.After;
 import org.junit.Before;
@@ -30,6 +29,7 @@ import static org.mockito.BDDMockito.willAnswer;
 import static org.mockito.Mockito.spy;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
+import org.slf4j.MDC;
 
 /**
  *
