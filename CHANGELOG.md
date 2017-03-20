@@ -12,6 +12,8 @@ was added, changed, deprecated, removed, fix and security fixes.
 - Security - Lists security fixes to security vulnerabilities
 
 ## [Unreleased]
+
+## [0.9.4] - 2017-03-20
 ### Fixed
 - Issue where log4j MDC was being used instead of the slf4j MDC
 
