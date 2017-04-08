@@ -38,6 +38,7 @@
         <module>external-failsafe</module>
         <module>external-guava</module>
         <module>external-objenesis</module>
+        <module>external-snakeyaml</module>
     </modules>
 
     <build>
