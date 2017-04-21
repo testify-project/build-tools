@@ -13,6 +13,10 @@ was added, changed, deprecated, removed, fix and security fixes.
 
 ## [Unreleased]
 
+## [0.9.5] - 2017-04-21
+### Added
+- Added snake yaml external module
+
 ## [0.9.4] - 2017-03-20
 ### Fixed
 - Issue where log4j MDC was being used instead of the slf4j MDC
