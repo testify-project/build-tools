@@ -19,30 +19,39 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.testifyproject.buildtools</groupId>
-        <artifactId>parent</artifactId>
+        <groupId>org.testifyproject.external</groupId>
+        <artifactId>external</artifactId>
         <version>0.9.5</version>
     </parent>
-
-    <artifactId>coding-conventions</artifactId>
-    <name>coding-conventions</name>
-    <description>A module that contains coding convention resource files (i.e. license header, checkstyle configuration, etc)</description>
-
+    
+    <artifactId>external-snakeyaml</artifactId>
+    
     <properties>
-        <checkstyle.version>7.0</checkstyle.version>
-        <license.version>3.0</license.version>
+        <snakeyaml.version>1.18</snakeyaml.version>
     </properties>
-
+    
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-shade-plugin</artifactId>
+                <configuration>
+                    <relocations>
+                        <relocation>
+                            <pattern>org.yaml</pattern>
+                            <shadedPattern>org.testifyproject</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
     <dependencies>
         <dependency>
-            <groupId>com.puppycrawl.tools</groupId>
-            <artifactId>checkstyle</artifactId>
-            <version>${checkstyle.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.mycila</groupId>
-            <artifactId>license-maven-plugin-git</artifactId>
-            <version>${license.version}</version>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${snakeyaml.version}</version>
         </dependency>
     </dependencies>
+    
 </project>

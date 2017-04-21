@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.testifyproject.buildtools</groupId>
         <artifactId>parent</artifactId>
-        <version>0.9.4</version>
+        <version>0.9.5</version>
     </parent>
 
     <groupId>org.testifyproject.external</groupId>
@@ -38,6 +38,7 @@
         <module>external-failsafe</module>
         <module>external-guava</module>
         <module>external-objenesis</module>
+        <module>external-snakeyaml</module>
     </modules>
 
     <build>
