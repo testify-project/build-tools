@@ -50,79 +50,34 @@
                     </artifactSet>
                     <relocations>
                         <relocation>
-                            <pattern>com.spotify.docker.client</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client</shadedPattern>
+                            <pattern>com</pattern>
+                            <shadedPattern>org.testifyproject</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org.aopalliance</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.aopalliance</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.objectweb.asm</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.objectweb.asm</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.bouncycastle</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.bouncycastle</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.apache.commons</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.apache.commons</shadedPattern>
+                            <pattern>org</pattern>
+                            <shadedPattern>org.testifyproject</shadedPattern>
                             <excludes>
+                                <exclude>org.slf4j.*</exclude>
                                 <exclude>org.apache.commons.logging.*</exclude>
+                                <exclude>org.xml.sax.*</exclude>
+                                <exclude>org.w3c.dom.*</exclude>
                             </excludes>
                         </relocation>
                         <relocation>
-                            <pattern>com.google</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.google</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.glassfish.hk2</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.glassfish.hk2</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.jvnet.hk2</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.jvnet.hk2</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.jvnet.tiger_types</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.jvnet.tiger_types</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.apache.http</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.apache.http</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>com.fasterxml.jackson</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.fasterxml.jackson</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.glassfish.jersey</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.glassfish.jersey</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>jersey.repackaged.com.google.common</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.jersey.repackaged.com.google.common</shadedPattern>
+                            <pattern>jersey</pattern>
+                            <shadedPattern>org.testifyproject</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>javassist</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.javassist</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>com.kenai.constantine</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.kenai.constantine</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>com.kenai.jnr.x86asm</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.kenai.jnr.x86asm</shadedPattern>
+                            <shadedPattern>org.testifyproject</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>jnr</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.jnr</shadedPattern>
+                            <shadedPattern>org.testifyproject</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>jni</pattern>
-                            <shadedPattern>org.testifyproject.spotify.docker.client.jni</shadedPattern>
+                            <shadedPattern>org.testifyproject</shadedPattern>
                         </relocation>
                     </relocations>
                     <filters>

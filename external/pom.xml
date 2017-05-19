@@ -57,7 +57,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>${plugin.shade}</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.testifyproject.maven</groupId>
@@ -80,7 +80,7 @@
                         <createSourcesJar>true</createSourcesJar>
                         <shadeSourcesContent>true</shadeSourcesContent>
                         <transformers>
-                            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                            <transformer implementation="org.testifyproject.maven.shade.ServiceResourceTransformer" />
                             <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"/>
                             <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
                             <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer">

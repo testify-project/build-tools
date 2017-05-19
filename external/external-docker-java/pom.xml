@@ -35,6 +35,18 @@
             <plugin>
                 <artifactId>maven-shade-plugin</artifactId>
                 <configuration>
+                    <artifactSet>
+                        <!--
+                            XXX: Every package can be shaded except:
+                            1. com.kenai.jffi to avoid UnsatisfiedLinkError 
+                            2. org.apache.commons.logging to avoid logger not being found
+                            3. slf4j
+                        -->
+                        <excludes>
+                            <exclude>commons-logging:commons-logging</exclude>
+                            <exclude>org.slf4j:*</exclude>
+                        </excludes>
+                    </artifactSet>
                     <relocations>
                         <relocation>
                             <pattern>com</pattern>
@@ -91,20 +103,6 @@
             <groupId>com.github.docker-java</groupId>
             <artifactId>docker-java</artifactId>
             <version>${docker.java.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>jcl-over-slf4j</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 </project>
