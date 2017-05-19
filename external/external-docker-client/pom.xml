@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2016-2017 Testify Project.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.testifyproject.external</groupId>
+        <artifactId>external</artifactId>
+        <version>0.9.6-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>external-docker-client</artifactId>
+    
+    <properties>
+        <docker.client.version>8.4.0</docker.client.version>
+    </properties>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-shade-plugin</artifactId>
+                <configuration>
+                    <artifactSet>
+                        <!--
+                            XXX: Every package can be shaded except:
+                            1. com.kenai.jffi to avoid UnsatisfiedLinkError 
+                            2. org.apache.commons.logging to avoid logger not being found 
+                            3. javax packages
+                        -->
+                        <excludes>
+                            <exclude>commons-logging:commons-logging</exclude>
+                            <exclude>com.github.jnr:jffi</exclude>
+                            <exclude>org.slf4j:*</exclude>
+                        </excludes>
+                    </artifactSet>
+                    <relocations>
+                        <relocation>
+                            <pattern>com.spotify.docker.client</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.aopalliance</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.aopalliance</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.objectweb.asm</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.objectweb.asm</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.bouncycastle</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.bouncycastle</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.apache.commons</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.apache.commons</shadedPattern>
+                            <excludes>
+                                <exclude>org.apache.commons.logging.*</exclude>
+                            </excludes>
+                        </relocation>
+                        <relocation>
+                            <pattern>com.google</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.google</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.glassfish.hk2</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.glassfish.hk2</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.jvnet.hk2</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.jvnet.hk2</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.jvnet.tiger_types</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.jvnet.tiger_types</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.apache.http</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.apache.http</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>com.fasterxml.jackson</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.fasterxml.jackson</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.glassfish.jersey</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.glassfish.jersey</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>jersey.repackaged.com.google.common</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.jersey.repackaged.com.google.common</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>javassist</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.javassist</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>com.kenai.constantine</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.kenai.constantine</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>com.kenai.jnr.x86asm</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.kenai.jnr.x86asm</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>jnr</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.jnr</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>jni</pattern>
+                            <shadedPattern>org.testifyproject.spotify.docker.client.jni</shadedPattern>
+                        </relocation>
+                    </relocations>
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/*.SF</exclude>
+                                <exclude>META-INF/*.DSA</exclude>
+                                <exclude>META-INF/*.RSA</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.spotify</groupId>
+            <artifactId>docker-client</artifactId>
+            <version>${docker.client.version}</version>
+        </dependency>
+    </dependencies>
+    
+</project>
