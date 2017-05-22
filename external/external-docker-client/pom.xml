@@ -38,13 +38,13 @@
                     <artifactSet>
                         <!--
                             XXX: Every package can be shaded except:
-                            1. com.kenai.jffi to avoid UnsatisfiedLinkError 
+                            1. com.github.jnr dependencies to avoid UnsatisfiedLinkError 
                             2. org.apache.commons.logging to avoid logger not being found 
-                            3. javax packages
+                            3. javax dependencies
                         -->
                         <excludes>
                             <exclude>commons-logging:commons-logging</exclude>
-                            <exclude>com.github.jnr:jffi</exclude>
+                            <exclude>com.github.jnr:*</exclude>
                             <exclude>org.slf4j:*</exclude>
                         </excludes>
                     </artifactSet>
@@ -69,14 +69,6 @@
                         </relocation>
                         <relocation>
                             <pattern>javassist</pattern>
-                            <shadedPattern>org.testifyproject</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>jnr</pattern>
-                            <shadedPattern>org.testifyproject</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>jni</pattern>
                             <shadedPattern>org.testifyproject</shadedPattern>
                         </relocation>
                     </relocations>
