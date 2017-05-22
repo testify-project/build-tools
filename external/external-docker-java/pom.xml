@@ -43,6 +43,7 @@
                             3. slf4j
                         -->
                         <excludes>
+                            <exclude>org.testifyproject.external:external-docker-java</exclude>
                             <exclude>commons-logging:commons-logging</exclude>
                             <exclude>org.slf4j:*</exclude>
                         </excludes>

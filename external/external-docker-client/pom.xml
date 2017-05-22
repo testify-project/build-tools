@@ -43,6 +43,7 @@
                             3. javax dependencies
                         -->
                         <excludes>
+                            <exclude>org.testifyproject.external:external-docker-client</exclude>
                             <exclude>commons-logging:commons-logging</exclude>
                             <exclude>com.github.jnr:*</exclude>
                             <exclude>org.slf4j:*</exclude>
