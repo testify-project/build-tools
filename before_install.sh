@@ -18,7 +18,7 @@ set -e
 
 if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
     echo "Decrypting Secrets"
-    openssl aes-256-cbc -K $encrypted_a635af73de4d_key -iv $encrypted_a635af73de4d_iv -in secrets.tar.gz.enc -out secrets.tar.gz -d
+    openssl aes-256-cbc -K $encrypted_5c89936362f7_key -iv $encrypted_5c89936362f7_iv -in secrets.tar.gz.enc -out secrets.tar.gz -d
     tar --strip-components 1 -xzf secrets.tar.gz
     gpg --fast-import testifybot.asc
     eval "$(ssh-agent -s)"

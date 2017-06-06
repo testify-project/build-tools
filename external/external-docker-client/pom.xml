@@ -23,11 +23,11 @@
         <artifactId>external</artifactId>
         <version>0.9.6</version>
     </parent>
-    
-    <artifactId>external-docker-java</artifactId>
+
+    <artifactId>external-docker-client</artifactId>
     
     <properties>
-        <docker.java.version>3.0.0</docker.java.version>
+        <docker.client.version>8.6.2</docker.client.version>
     </properties>
     
     <build>
@@ -38,14 +38,16 @@
                     <artifactSet>
                         <!--
                             XXX: Every package can be shaded except:
-                            1. com.kenai.jffi to avoid UnsatisfiedLinkError 
-                            2. org.apache.commons.logging to avoid logger not being found
-                            3. slf4j
+                            1. com.github.jnr dependencies to avoid UnsatisfiedLinkError 
+                            2. org.apache.commons.logging to avoid logger not being found 
+                            3. javax dependencies
                         -->
                         <excludes>
-                            <exclude>org.testifyproject.external:external-docker-java</exclude>
+                            <exclude>org.testifyproject.external:external-docker-client</exclude>
                             <exclude>commons-logging:commons-logging</exclude>
+                            <exclude>com.github.jnr:*</exclude>
                             <exclude>org.slf4j:*</exclude>
+                            <exclude>ch.qos.logback:*</exclude>
                         </excludes>
                     </artifactSet>
                     <relocations>
@@ -54,33 +56,22 @@
                             <shadedPattern>org.testifyproject</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>de</pattern>
-                            <shadedPattern>org.testifyproject</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>io</pattern>
-                            <shadedPattern>org.testifyproject</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>javassist</pattern>
-                            <shadedPattern>org.testifyproject</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>jersey</pattern>
-                            <shadedPattern>org.testifyproject</shadedPattern>
-                        </relocation>
-                        <relocation>
                             <pattern>org</pattern>
                             <shadedPattern>org.testifyproject</shadedPattern>
                             <excludes>
                                 <exclude>org.slf4j.*</exclude>
+                                <exclude>ch.qos.logback.*</exclude>
                                 <exclude>org.apache.commons.logging.*</exclude>
                                 <exclude>org.xml.sax.*</exclude>
                                 <exclude>org.w3c.dom.*</exclude>
                             </excludes>
                         </relocation>
                         <relocation>
-                            <pattern>socketfactory</pattern>
+                            <pattern>jersey</pattern>
+                            <shadedPattern>org.testifyproject</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>javassist</pattern>
                             <shadedPattern>org.testifyproject</shadedPattern>
                         </relocation>
                     </relocations>
@@ -98,12 +89,13 @@
             </plugin>
         </plugins>
     </build>
-
+    
     <dependencies>
         <dependency>
-            <groupId>com.github.docker-java</groupId>
-            <artifactId>docker-java</artifactId>
-            <version>${docker.java.version}</version>
+            <groupId>com.spotify</groupId>
+            <artifactId>docker-client</artifactId>
+            <version>${docker.client.version}</version>
         </dependency>
     </dependencies>
+    
 </project>
