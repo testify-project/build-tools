@@ -27,23 +27,23 @@ Testify uses a Maven-based build system. To build from source follow the bellow 
 
 ### Check out sources
 ```
-$ git clone git@github.com:testify-project/build-tools.git
+git clone git@github.com:testify-project/build-tools.git
 ```
 
 or
 
 ```
-$ git clone https://github.com/testify-project/build-tools.git
+git clone https://github.com/testify-project/build-tools.git
 ```
 
 ### Install all Testify jars into your local Maven cache
 ```
-$ mvn install -Dmaven.test.skip
+./mvnw install -Dmaven.test.skip
 ```
 
 ### Compile and test and build all jars
 ```
-$ mvn clean install
+./mvnw clean install
 ```
 
 ## Staying in Touch

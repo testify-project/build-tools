@@ -13,6 +13,10 @@ was added, changed, deprecated, removed, fix and security fixes.
 
 ## [Unreleased]
 
+## [0.9.6] - 2017-06-06
+### Added
+- Added Spotify Docker Client external module
+
 ## [0.9.5] - 2017-04-21
 ### Added
 - Added snake yaml external module
