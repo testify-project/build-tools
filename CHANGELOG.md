@@ -13,6 +13,10 @@ was added, changed, deprecated, removed, fix and security fixes.
 
 ## [Unreleased]
 
+## [0.9.7-SNAPSHOT] - 2017-06-12
+### Added
+- Added Apache Commons JEXL3 external module
+
 ## [0.9.6] - 2017-06-06
 ### Added
 - Added Spotify Docker Client external module
