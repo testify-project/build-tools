@@ -28,7 +28,7 @@
     <artifactId>tools</artifactId>
     <packaging>pom</packaging>
 
-    <name>Tools</name>
+    <name>[Tools]</name>
     <description>Parent module that contains useful compile-time and runtime tools</description>
     
     <modules>

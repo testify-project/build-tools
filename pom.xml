@@ -23,7 +23,7 @@
     <version>0.9.7-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Build Tools</name>
+    <name>[Build Tools]</name>
     <description>A set of tools for managing code quality and builds</description>
     <url>https://github.com/testify-project/build-tools</url>
     
