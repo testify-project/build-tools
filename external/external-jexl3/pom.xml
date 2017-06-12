@@ -24,10 +24,10 @@
         <version>0.9.7</version>
     </parent>
     
-    <artifactId>external-objenesis</artifactId>
-    
+    <artifactId>external-jexl3</artifactId>
+
     <properties>
-        <objenesis.version>2.4</objenesis.version>
+        <jexl.version>3.1</jexl.version>
     </properties>
     
     <build>
@@ -35,10 +35,18 @@
             <plugin>
                 <artifactId>maven-shade-plugin</artifactId>
                 <configuration>
+                    <artifactSet>
+                        <excludes>
+                            <exclude>commons-logging:commons-logging</exclude>
+                        </excludes>
+                    </artifactSet>
                     <relocations>
                         <relocation>
-                            <pattern>org.objenesis</pattern>
+                            <pattern>org</pattern>
                             <shadedPattern>org.testifyproject</shadedPattern>
+                            <excludes>
+                                <exclude>org.apache.commons.logging.*</exclude>
+                            </excludes>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -48,9 +56,9 @@
     
     <dependencies>
         <dependency>
-            <groupId>org.objenesis</groupId>
-            <artifactId>objenesis</artifactId>
-            <version>${objenesis.version}</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-jexl3</artifactId>
+            <version>${jexl.version}</version>
         </dependency>
     </dependencies>
     

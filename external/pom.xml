@@ -21,14 +21,14 @@
     <parent>
         <groupId>org.testifyproject.buildtools</groupId>
         <artifactId>parent</artifactId>
-        <version>0.9.6</version>
+        <version>0.9.7</version>
     </parent>
 
     <groupId>org.testifyproject.external</groupId>
     <artifactId>external</artifactId>
     <packaging>pom</packaging>
 
-    <name>External</name>
+    <name>[External]</name>
     <description>Parent module of shaded external third party libraries.</description>
 
     <modules>
@@ -40,6 +40,7 @@
         <module>external-objenesis</module>
         <module>external-snakeyaml</module>
         <module>external-docker-client</module>
+        <module>external-jexl3</module>
     </modules>
 
     <build>

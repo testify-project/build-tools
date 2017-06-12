@@ -20,10 +20,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.testifyproject.buildtools</groupId>
     <artifactId>parent</artifactId>
-    <version>0.9.6</version>
+    <version>0.9.7</version>
     <packaging>pom</packaging>
 
-    <name>Build Tools</name>
+    <name>[Build Tools]</name>
     <description>A set of tools for managing code quality and builds</description>
     <url>https://github.com/testify-project/build-tools</url>
     

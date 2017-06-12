@@ -21,14 +21,14 @@
     <parent>
         <groupId>org.testifyproject.buildtools</groupId>
         <artifactId>parent</artifactId>
-        <version>0.9.6</version>
+        <version>0.9.7</version>
     </parent>
 
     <groupId>org.testifyproject.maven</groupId>
     <artifactId>maven</artifactId>
     <packaging>pom</packaging>
 
-    <name>Maven</name>
+    <name>[Maven]</name>
     <description>Parent module of maven extentions and plugins</description>
     
     <modules>
