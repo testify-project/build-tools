@@ -27,13 +27,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarOutputStream;
+
 import org.apache.maven.plugins.shade.relocation.Relocator;
 import org.apache.maven.plugins.shade.resource.ResourceTransformer;
 import org.codehaus.plexus.util.IOUtil;
 
 /**
- * A transformer that looks for service descriptors under META-INF/services and
- * relocates the service files as well as the content of the service file.
+ * A transformer that looks for service descriptors under META-INF/services and relocates the
+ * service files as well as the content of the service file.
  *
  * @see
  * <a href="https://issues.apache.org/jira/browse/MSHADE-182">MSHADE-182</a>
