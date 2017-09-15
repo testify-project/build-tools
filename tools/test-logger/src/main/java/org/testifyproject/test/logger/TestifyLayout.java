@@ -15,26 +15,29 @@
  */
 package org.testifyproject.test.logger;
 
+import static java.time.Instant.ofEpochMilli;
+import static java.time.ZoneOffset.UTC;
+
+import static org.fusesource.jansi.Ansi.Color.BLUE;
+import static org.fusesource.jansi.Ansi.Color.DEFAULT;
+import static org.fusesource.jansi.Ansi.Color.RED;
+import static org.fusesource.jansi.Ansi.ansi;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Map;
+
+import org.fusesource.jansi.Ansi.Color;
+
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.pattern.Abbreviator;
 import ch.qos.logback.classic.pattern.TargetLengthBasedClassNameAbbreviator;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.CoreConstants;
 import ch.qos.logback.core.LayoutBase;
-import static java.time.Instant.ofEpochMilli;
-import java.time.LocalDateTime;
-import static java.time.ZoneOffset.UTC;
-import java.time.format.DateTimeFormatter;
-import java.util.Map;
-import org.fusesource.jansi.Ansi.Color;
-import static org.fusesource.jansi.Ansi.Color.BLUE;
-import static org.fusesource.jansi.Ansi.Color.DEFAULT;
-import static org.fusesource.jansi.Ansi.Color.RED;
-import static org.fusesource.jansi.Ansi.ansi;
 
 /**
- * A custom layout formatter that takes into consideration MDC test class and
- * method names.
+ * A custom layout formatter that takes into consideration MDC test class and method names.
  *
  * @author saden
  */
@@ -52,7 +55,8 @@ public class TestifyLayout extends LayoutBase<ILoggingEvent> {
                 .atZone(UTC)
                 .toLocalDateTime();
         String loggerName = event.getLoggerName();
-        String foramttedDateTime = paddRight(dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME), 23);
+        String foramttedDateTime = paddRight(dateTime.format(
+                DateTimeFormatter.ISO_LOCAL_DATE_TIME), 23);
 
         builder.append("[")
                 .append(foramttedDateTime)

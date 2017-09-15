@@ -15,6 +15,8 @@
  */
 package org.testifyproject.tools;
 
+import static javax.tools.StandardLocation.CLASS_OUTPUT;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -28,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.RoundEnvironment;
@@ -42,12 +45,10 @@ import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.tools.Diagnostic.Kind;
 import javax.tools.FileObject;
-import static javax.tools.StandardLocation.CLASS_OUTPUT;
 
 /**
  * An annotation processor implementation that generates "META-INF/services"
- * provider-configuration files for classes annotated with {@link Discoverable}
- * annotation.
+ * provider-configuration files for classes annotated with {@link Discoverable} annotation.
  */
 @SupportedAnnotationTypes("org.testifyproject.tools.Discoverable")
 public class DiscoverableProcessor extends AbstractProcessor {
@@ -86,10 +87,13 @@ public class DiscoverableProcessor extends AbstractProcessor {
 
                         if (!(contracts.isEmpty())) {
                             contracts.stream()
-                                    .map((contract) -> elements.getBinaryName(contract).toString())
-                                    .map((contractName) -> services.computeIfAbsent(contractName, p -> new TreeSet<>()))
+                                    .map((contract) -> elements.getBinaryName(contract)
+                                            .toString())
+                                    .map((contractName) -> services.computeIfAbsent(
+                                            contractName, p -> new TreeSet<>()))
                                     .forEach((contractNames) -> {
-                                        contractNames.add(elements.getBinaryName(type).toString());
+                                        contractNames.add(elements.getBinaryName(type)
+                                                .toString());
                                     });
                         }
                     }
@@ -137,7 +141,8 @@ public class DiscoverableProcessor extends AbstractProcessor {
         return false;
     }
 
-    private Collection<TypeElement> getContracts(TypeElement typeElement, Discoverable discoverable) {
+    private Collection<TypeElement> getContracts(TypeElement typeElement,
+            Discoverable discoverable) {
         List<TypeElement> typeElementList = new ArrayList<>();
 
         try {
@@ -151,7 +156,8 @@ public class DiscoverableProcessor extends AbstractProcessor {
                     boolean hasInterfaces = !typeElement.getInterfaces().isEmpty();
 
                     if (hasBaseClass) {
-                        typeElementList.add((TypeElement) ((DeclaredType) typeElement.getSuperclass()).asElement());
+                        typeElementList.add((TypeElement) ((DeclaredType) typeElement
+                                .getSuperclass()).asElement());
                     } else if (hasInterfaces) {
                         typeElement.getInterfaces()
                                 .parallelStream()
@@ -181,19 +187,23 @@ public class DiscoverableProcessor extends AbstractProcessor {
                     .toString()
                     .equals("java.lang.Object");
         }
+
         return false;
     }
 
     protected void note(String message, Object... args) {
-        processingEnv.getMessager().printMessage(Kind.NOTE, String.format(message, args));
+        processingEnv.getMessager()
+                .printMessage(Kind.NOTE, String.format(message, args));
     }
 
     protected void warning(String message, Object... args) {
-        processingEnv.getMessager().printMessage(Kind.WARNING, String.format(message, args));
+        processingEnv.getMessager()
+                .printMessage(Kind.WARNING, String.format(message, args));
     }
 
     protected void error(Element source, String message, Object... args) {
-        processingEnv.getMessager().printMessage(Kind.ERROR, String.format(message, args), source);
+        processingEnv.getMessager()
+                .printMessage(Kind.ERROR, String.format(message, args), source);
     }
 
     protected void error(Throwable e) {
@@ -202,6 +212,7 @@ public class DiscoverableProcessor extends AbstractProcessor {
         try (PrintWriter writer = new PrintWriter(buffer)) {
             e.printStackTrace(writer);
         }
+
         processingEnv.getMessager().printMessage(Kind.ERROR, buffer.toString());
     }
 

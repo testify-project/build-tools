@@ -15,17 +15,17 @@
  */
 package org.testifyproject.tools;
 
-import java.lang.annotation.Documented;
 import static java.lang.annotation.ElementType.TYPE;
-import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.SOURCE;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * An annotation that can be placed on service implementation classes to add
- * entries for the service to the META-INF/services directory and allow the
- * service to be discoverable through the JDK's
- * {@link java.util.ServiceLoader service-provider loading facility}.
+ * An annotation that can be placed on service implementation classes to add entries for the
+ * service to the META-INF/services directory and allow the service to be discoverable through
+ * the JDK's {@link java.util.ServiceLoader service-provider loading facility}.
  *
  * @author saden
  */
@@ -35,11 +35,10 @@ import java.lang.annotation.Target;
 public @interface Discoverable {
 
     /**
-     * Specifies the contracts implemented by SPI contract. Note that if the
-     * value is not specified entries for the interfaces implemented by the
-     * service will added to the META-INF/services directory. If a value(s) are
-     * specified then entries for the specified interfaces will be added to the
-     * META-INF/services directory.
+     * Specifies the contracts implemented by SPI contract. Note that if the value is not
+     * specified entries for the interfaces implemented by the service will added to the
+     * META-INF/services directory. If a value(s) are specified then entries for the specified
+     * interfaces will be added to the META-INF/services directory.
      *
      * @return the interfaces implemented by service.
      */
