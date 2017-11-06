@@ -27,7 +27,7 @@
     <artifactId>external-bytebuddy</artifactId>
 
     <properties>
-        <bytebuddy.version>1.2.1</bytebuddy.version>
+        <bytebuddy.version>1.7.6</bytebuddy.version>
     </properties>
 
     <build>

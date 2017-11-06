@@ -13,14 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.testifyproject.external.bytebuddy;
+package org.testifyproject.bytebuddy;
 
 /**
- * This is a dummy class info to satisfy SonaType rules requiring artifacts to
- * have javadoc/source attachment.
+ * A contract that enables the substitution of parameters passed to super method using
+ * {@code net.bytebuddy.implementation.bind.annotation.Morph} annotation.
  *
  * @author saden
+ * @param <T> the super call return type
  */
-public class Dummy {
+public interface Morpher<T> {
 
+    /**
+     * Invoke the morph method using the given parameters.
+     *
+     * @param arguments the arguments passed to the super call
+     * @return the result returned from the super call.
+     */
+    T morph(Object... arguments);
 }

@@ -44,6 +44,7 @@
         <!-- IDE Properties -->
         <netbeans.compile.on.save>none</netbeans.compile.on.save>
         <netbeans.hint.license>apache20</netbeans.hint.license>
+        <netbeans.inceptionYear>2016</netbeans.inceptionYear>
 
         <!-- Test Dependency Versions -->
         <junit.version>4.12</junit.version>
