@@ -18,8 +18,10 @@ package org.testifyproject.tools;
 import static com.google.common.truth.Truth.assertAbout;
 import static com.google.testing.compile.JavaFileObjects.forResource;
 import static com.google.testing.compile.JavaSourceSubjectFactory.javaSource;
+
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+
 import org.junit.Test;
 
 /**

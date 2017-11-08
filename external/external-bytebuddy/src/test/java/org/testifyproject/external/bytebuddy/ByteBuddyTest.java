@@ -15,8 +15,6 @@
  */
 package org.testifyproject.external.bytebuddy;
 
-import org.testifyproject.bytebuddy.Morpher;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 import static net.bytebuddy.matcher.ElementMatchers.isDeclaredBy;
@@ -24,6 +22,7 @@ import static net.bytebuddy.matcher.ElementMatchers.not;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.testifyproject.bytebuddy.Morpher;
 import org.testifyproject.external.fixture.Greeter;
 import org.testifyproject.external.fixture.GreeterInterceptor;
 
