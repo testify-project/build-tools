@@ -32,9 +32,11 @@
         <property name="maximum" value="0"/>
         <property name="message" value="Line has trailing spaces."/>
     </module>
+    <module name="SuppressionCommentFilter" />
     <module name="TreeWalker">
         <property name="tabWidth" value="4" />
         <module name="FileContentsHolder" />
+        <module name="SuppressWarningsHolder"/>
         <module name="AnnotationUseStyle">
             <property name="elementStyle" value="compact"/>
             <property name="trailingArrayComma" value="never"/>
@@ -66,7 +68,7 @@
         <module name="MethodLength" />
         <module name="LineLength">
             <property name="max" value="100"/>
-            <property name="ignorePattern" value="^\s*\*.*$"/>
+            <property name="ignorePattern" value="^((\s*\*.*)|((package|import) .*))$"/>
         </module>
         <module name="ParameterNumber" />
         <module name="OuterTypeNumber" />

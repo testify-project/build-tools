@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.testifyproject.buildtools</groupId>
     <artifactId>parent</artifactId>
-    <version>0.9.8</version>
+    <version>0.9.9</version>
     <packaging>pom</packaging>
 
     <name>[Build Tools]</name>
@@ -44,6 +44,7 @@
         <!-- IDE Properties -->
         <netbeans.compile.on.save>none</netbeans.compile.on.save>
         <netbeans.hint.license>apache20</netbeans.hint.license>
+        <netbeans.inceptionYear>2016</netbeans.inceptionYear>
 
         <!-- Test Dependency Versions -->
         <junit.version>4.12</junit.version>
