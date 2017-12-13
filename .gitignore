@@ -10,4 +10,4 @@ buildNumber.properties
 secrets/
 **/secrets.tar
 **/secrets.tar.gz
-/external/external-bytebuddy/nbproject/
+**/nbproject

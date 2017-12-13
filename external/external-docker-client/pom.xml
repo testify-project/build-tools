@@ -27,7 +27,7 @@
     <artifactId>external-docker-client</artifactId>
     
     <properties>
-        <docker.client.version>8.6.2</docker.client.version>
+        <docker.client.version>8.9.2</docker.client.version>
     </properties>
     
     <build>
@@ -97,5 +97,5 @@
             <version>${docker.client.version}</version>
         </dependency>
     </dependencies>
-    
+   
 </project>
