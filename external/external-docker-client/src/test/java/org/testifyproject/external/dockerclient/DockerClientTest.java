@@ -30,8 +30,7 @@ public class DockerClientTest {
 
     @Test
     public void verifyConnection() throws Exception {
-        DockerClient client = DefaultDockerClient.builder()
-                .uri("unix:///var/run/docker.sock")
+        DockerClient client = DefaultDockerClient.fromEnv()
                 .build();
 
         String result = client.ping();
