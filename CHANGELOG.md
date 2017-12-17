@@ -12,6 +12,16 @@ was added, changed, deprecated, removed, fix and security fixes.
 - Security - Lists security fixes to security vulnerabilities
 
 ## [Unreleased]
+## [1.0.0] - 2017-12-17
+### Changes
+- Updated Docker Client version to 8.9.2
+
+## [0.9.9] - 2017-11-08
+### Changes
+- Updated Checkstyle version to 8.3 
+- Updated Checkstyle configuration to ignore long imports
+- Updated ByteBuddy version to 1.7.6 and added a test case for it
+
 ## [0.9.8] - 2017-09-15
 ### Added
 - Added suppressions checkstyle file
