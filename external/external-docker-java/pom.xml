@@ -27,7 +27,7 @@
     <artifactId>external-docker-java</artifactId>
     
     <properties>
-        <docker.java.version>3.0.0</docker.java.version>
+        <docker.java.version>3.1.0</docker.java.version>
     </properties>
     
     <build>
