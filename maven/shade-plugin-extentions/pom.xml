@@ -29,7 +29,7 @@
     <description>A module that contains maven shade plugin extentions</description>
 
     <properties>
-        <plugin.shade>2.4.2</plugin.shade>
+        <plugin.shade>3.5.2</plugin.shade>
     </properties>
 
     <dependencies>
